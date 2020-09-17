@@ -1,0 +1,75 @@
+************************************
+* Ellen Zhao
+* COMP15 SPRING 2019
+* PROJECT 1-THE BIOLOGIST'S GREP
+* README
+************************************
+
+COMPILE/RUN: compile using "make SeqMatch", run executable with "./SeqMatch"
+
+PROGRAM PURPOSE: This project deals with the implementation of a Trie
+
+AKNOWLEDGEMENTS: I worked on this mainly alone with some help from the
+  internet, mainly stackoverflow, and help writing the delete function from
+  Edbert
+
+FILES:
+  -main.cpp: driver for Trie
+
+  -Trie.h: interface for Trie, contains TrieNode struct, Trie class, and
+    all the function declarations
+
+  -Trie.cpp: implementation of Trie. Deals with the creation, use, and
+    deletion of a Trie
+
+DATA STRUCTURES:
+I used a trie, because we are dealing with searching for and
+keeping track of srings. A trie is good for this because a trie is a search
+tree that is specifically for strings. They are better because the cut runtime
+down by not searching every single string individually.
+I also used a struct called TrieNode which contained an array of 
+pointers that were the children of the TrieNode and a bool that checks if
+we are at the end of the word.
+I have one class for my Trie.
+
+This project was very time consuming. Especially query, but when I started it
+it was not as bad as I thought it would be. It took a lot of time just messing
+with how all the pieces of inofrmation is stored and saved to make query work.
+I used a lot more private in my class than I would have liked to for my query
+function, but it was the only way I could get all the information I wanted to
+without splitting my query into a ton of tiny functions that returned values.
+
+I also think it would have gone smoother if we were provided some sort of text
+file for inputs that we could have used to test out program with, it's really
+hard trying to account for all cases if we don't know which cases we really
+need accounting for.
+
+TESTING:
+I united tested my program:
+    1. Constructor: I test my comstructor by calling numNodes and checking
+       if the number of nodes is 0
+    2. ReadCommands: I test if I can read commands from a file, buy just
+       printing out what is read and seeing if it matches
+    3. Insert: I test insert by inserting a ton of different random sequences
+       and by inserting a sequence already in the trie
+       I check if it works by calling the print all function and seeing if
+       if everything was added
+    4. PrintAll: just test by printing
+    5. OutputFile: I call the change output file and then call a bunch of
+       other functions after it, then go into the new text file and check
+       if the commands are printed into it
+    6. PrefixQuery: I call prefix query for a sequence not in the trie and call
+       it for sequences that are in the trie. I check if it works by
+       checking if it prints all the sequences with that prefix
+    7. Query: I call query for a sequence not in the trie, a sequence that is
+       not a complete match, and one that is a match. Checks if it prints
+       the correct statment.
+    8. Remove: call remove for a sequence that isn't a match and one that is
+       a match. checks if it works by calling print all and seeing if the
+       sequence was removed
+       Also, checked for a word embedded in another word (like TAC and TACTAT):
+       made sure when deleting TACTAT, it doessn't delete TAC
+    9. Delete: checks if everything was deleted by seeing if num Nodes is 0
+
+BUGS:
+        couldn't find any bugs
